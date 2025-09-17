@@ -8,10 +8,8 @@ import { RiBarChart2Line } from "react-icons/ri";
 import { currencyMap } from './currency-map';
 import './index.css';
 
-// Componentes da Recharts
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, Cell } from 'recharts';
 
-// Funções e constantes
 const formatOptionLabel = ({ value, label }) => {
     const countryCode = currencyMap[value];
     if (countryCode) {
