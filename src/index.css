@@ -1,0 +1,278 @@
+/* src/index.css - VERSÃO FINAL COMPLETA E CORRIGIDA */
+
+:root {
+  --primary-color: #007BFF;
+  --background-start: #0a101f;
+  --background-end: #021a31;
+  --panel-bg: #161e31;
+  --input-bg: #0a101f;
+  --text-color: #ffffff;
+  --text-color-secondary: #a0b3d0;
+  --border-color: #313a55;
+  --success-color: #28a745;
+  --font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  overflow-y: auto;
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.converter-panel, .chart-panel {
+  background: var(--panel-bg);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.converter-panel {
+  flex: 0 0 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-title {
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 2em;
+  text-align: center;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  margin-bottom: 25px;
+}
+
+.input-wrapper {
+  flex: 1;
+  text-align: left;
+}
+
+.input-wrapper.full-width {
+  flex-basis: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-color-secondary);
+  font-weight: 500;
+}
+
+.amount-input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  height: 56px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.swap-button-wrapper {
+  padding: 0 5px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 8px;
+}
+
+.swap-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-color-secondary);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.swap-button:hover {
+  color: white;
+  background: var(--primary-color);
+  transform: rotate(180deg);
+  border-color: var(--primary-color);
+}
+
+.result-wrapper {
+  margin-top: 20px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px 25px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: resultFadeIn 0.5s ease-out;
+}
+
+@keyframes resultFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.result-text {
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--text-color-secondary);
+  font-weight: 500;
+}
+
+.result-highlight {
+  display: block;
+  font-size: 2em;
+  color: var(--success-color);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.exchange-rate {
+  margin: 10px 0 0;
+  font-size: 0.8em;
+  color: var(--text-color-secondary);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exchange-rate svg {
+  font-size: 1.2em;
+}
+
+.loading-text {
+  color: var(--text-color-secondary);
+  font-size: 1em;
+  text-align: center;
+}
+
+img { border-radius: 3px; }
+
+.chart-panel h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.custom-tooltip { background: #1c2135; border: 1px solid var(--border-color); padding: 10px 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); color: #EAEAEA; }
+.custom-tooltip .label { margin: 0; font-size: 12px; color: var(--text-color-secondary); }
+.custom-tooltip .intro { margin: 5px 0 0; font-weight: 600; color: var(--primary-color); }
+
+.footer {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px 40px;
+  background: var(--panel-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  animation: slideUp 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.footer p { margin: 0; color: var(--text-color-secondary); font-weight: 500; }
+.social-links { display: flex; gap: 20px; }
+.social-icon { color: var(--text-color-secondary); font-size: 24px; transition: all 0.3s ease-in-out; }
+.social-icon:hover { color: var(--primary-color); transform: translateY(-5px) scale(1.1); text-shadow: 0 0 10px var(--primary-color); }
+
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--text-color-secondary);
+  opacity: 0.5;
+}
+
+.chart-placeholder svg {
+  font-size: 4em;
+  margin-bottom: 15px;
+}
+
+.chart-placeholder p {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .main-content { flex-direction: column; gap: 30px; min-height: auto; }
+  .converter-panel { flex: 1; width: 100%; max-width: 520px; margin: 0 auto; }
+  .chart-panel { height: 400px; max-width: 520px; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+  .converter-panel, .chart-panel, .footer { padding: 20px; }
+  .panel-title, .chart-panel h2 { font-size: 1.5em; margin-bottom: 20px; }
+  .footer { flex-direction: column; gap: 15px; text-align: center; }
+}
